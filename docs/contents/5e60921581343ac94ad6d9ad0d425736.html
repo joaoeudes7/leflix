@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Reading</title>
+    <title>UserBook Status</title>
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic|Source+Code+Pro:300,400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="../assets/css/bootstrap.css">
 <link rel="stylesheet" href="../assets/css/jquery.bonsai.css">
@@ -18,7 +18,7 @@
 
       <!-- Name Title -->
 
-      <h1>Reading</h1>
+      <h1>UserBook Status</h1>
 
       <!-- Type and Stereotype -->
 
@@ -40,7 +40,7 @@
           <span class="label label-info"><a href='cf9c8b720f3815adeccaf3ef6e48c6c4.html'><span class='node-icon staruml-icon icon-Project'></span>LeFlix</a></span>
         
           <span>::</span>
-          <span class="label label-info"><a href='5e60921581343ac94ad6d9ad0d425736.html'><span class='node-icon staruml-icon icon-UMLClass'></span>Reading</a></span>
+          <span class="label label-info"><a href='5e60921581343ac94ad6d9ad0d425736.html'><span class='node-icon staruml-icon icon-UMLClass'></span>UserBook Status</a></span>
         
       </section>
 
@@ -173,6 +173,13 @@
             <td></td>
           </tr>
           
+          <tr>
+            <td>public</td>
+            <td><a href="972fc491c12b91e6d23947f2fa310e76.html">page_reads</a></td>
+            <td>Number</td>
+            <td></td>
+          </tr>
+          
         </table>
       </section>
       
@@ -277,7 +284,7 @@
     
     <tr>
         <td>name</td>
-        <td>Reading</td>
+        <td>UserBook Status</td>
     </tr>
     
     
@@ -384,19 +391,31 @@
     <h3>Relationships</h3>
     <ul class="nav nav-list">
         
-        <li><a href='cb4c3774667e3e72dea56c35a4678d4d.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Book—Reading)</a></li>
+        <li><a href='a0f0bae32af85a5be6c49387a56c0882.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Points—UserBook Status)</a></li>
         
-        <li><a href='97fa307c430cb0f97e406468060238f9.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(User—Reading)</a></li>
+        <li><a href='97fa307c430cb0f97e406468060238f9.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(User—UserBook Status)</a></li>
         
-        <li><a href='8d26303ed46107f20a58da4001943e6b.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(ShelfBook—Reading)</a></li>
+        <li><a href='8d26303ed46107f20a58da4001943e6b.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook—UserBook Status)</a></li>
         
-        <li><a href='51f0da034593b40a8be10577c0dab8ae.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Book—Reading)</a></li>
+        <li><a href='8744e54419a66b78812ae99ca02f2758.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook Status—Book)</a></li>
         
-        <li><a href='8744e54419a66b78812ae99ca02f2758.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Reading—ShelfBook)</a></li>
+        <li><a href='51f0da034593b40a8be10577c0dab8ae.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Book—UserBook Status)</a></li>
         
-        <li><a href='a0f0bae32af85a5be6c49387a56c0882.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Points—Reading)</a></li>
+        <li><a href='cb4c3774667e3e72dea56c35a4678d4d.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Book—UserBook Status)</a></li>
         
-        <li><a href='60f311e25afc77c26135953672c6e3ca.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Points—Reading)</a></li>
+        <li><a href='60f311e25afc77c26135953672c6e3ca.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Points—UserBook Status)</a></li>
+        
+        <li><a href='fb1324e477d788986918b89767930187.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook Status—UserBook)</a></li>
+        
+        <li><a href='b4df5ba5891bb2be3afc74b01e1cbc72.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook—UserBook Status)</a></li>
+        
+        <li><a href='d0375d19dd135a4a0a7c6f15fb4b6a17.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(User—UserBook Status)</a></li>
+        
+        <li><a href='f9d185034b0ff017c7f89aff90ca7743.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Book—UserBook Status)</a></li>
+        
+        <li><a href='61a74cf9d64f68a5c1b50108b6714af1.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook Status—Points)</a></li>
+        
+        <li><a href='366e82888e579771c16aea2153e4fe01.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook Status—Points)</a></li>
         
     </ul>
 </section>
@@ -411,7 +430,13 @@
     <h3>Owned Elements</h3>
     <ul class="nav nav-list">
         
-        <li><a href='8744e54419a66b78812ae99ca02f2758.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(Reading—ShelfBook)</a></li>
+        <li><a href='8744e54419a66b78812ae99ca02f2758.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook Status—Book)</a></li>
+        
+        <li><a href='fb1324e477d788986918b89767930187.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook Status—UserBook)</a></li>
+        
+        <li><a href='61a74cf9d64f68a5c1b50108b6714af1.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook Status—Points)</a></li>
+        
+        <li><a href='366e82888e579771c16aea2153e4fe01.html'><span class='node-icon staruml-icon icon-UMLAssociation'></span>(UserBook Status—Points)</a></li>
         
     </ul>
 </section>
