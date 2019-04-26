@@ -1,6 +1,7 @@
 package com.jedev.leflix.Model;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
 import com.jedev.leflix.Config.ConfiguracaoFirebase;
 
 import java.util.Date;
@@ -10,10 +11,10 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private Boolean active=true;
-    private Date created_on;
-    private int ofencive_days=0;
-    private Date last_date_ofensive;
+    private Boolean active;
+    private String created_on;
+    private int ofencive_days;
+    private String last_date_ofensive;
 
     public Usuario() {
     }
@@ -24,7 +25,7 @@ public class Usuario {
                 .setValue( this );
     }
 
-
+    @Exclude
     public String getIdUsuario() {
         return idUsuario;
     }
@@ -48,7 +49,7 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    @Exclude
     public String getSenha() {
         return senha;
     }
@@ -65,12 +66,20 @@ public class Usuario {
         this.active = active;
     }
 
-    public Date getCreated_on() {
+    public String getCreated_on() {
         return created_on;
     }
 
-    public void setCreated_on(Date created_on) {
+    public void setCreated_on(String created_on) {
         this.created_on = created_on;
+    }
+
+    public String getLast_date_ofensive() {
+        return last_date_ofensive;
+    }
+
+    public void setLast_date_ofensive(String last_date_ofensive) {
+        this.last_date_ofensive = last_date_ofensive;
     }
 
     public int getOfencive_days() {
@@ -81,11 +90,7 @@ public class Usuario {
         this.ofencive_days = ofencive_days;
     }
 
-    public Date getLast_date_ofensive() {
-        return last_date_ofensive;
-    }
 
-    public void setLast_date_ofensive(Date last_date_ofensive) {
-        this.last_date_ofensive = last_date_ofensive;
-    }
+
+
 }
