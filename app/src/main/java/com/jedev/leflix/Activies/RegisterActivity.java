@@ -1,4 +1,4 @@
-package com.jedev.leflix;
+package com.jedev.leflix.Activies;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,11 +21,13 @@ import com.jedev.leflix.Config.ConfiguracaoFirebase;
 import com.jedev.leflix.Helper.Base64Custom;
 import com.jedev.leflix.Helper.DateCustom;
 import com.jedev.leflix.Model.Usuario;
+import com.jedev.leflix.R;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth autenticacao;
     private EditText campoNome, campoEmail, campoSenha;
     private Button botaoCadastrar;
+    private TextView abrirlogin;
 
     private Usuario usuario;
 
@@ -36,6 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         campoNome = findViewById(R.id.regnome);
         campoEmail = findViewById(R.id.regemail);
         campoSenha = findViewById(R.id.regsenha);
+        abrirlogin=findViewById(R.id.telalogin);
         botaoCadastrar = findViewById(R.id.regcadastrar);
 
         botaoCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +125,13 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+    public void abrirlogin(View view){
+        startActivity(new Intent(this,LoginActivity.class));
+        finish();
+
+
 
     }
 

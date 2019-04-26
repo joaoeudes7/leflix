@@ -1,7 +1,9 @@
-package com.jedev.leflix;
+package com.jedev.leflix.Activies;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.jedev.leflix.R;
 
 public class HomeActivity extends AppCompatActivity {
 
