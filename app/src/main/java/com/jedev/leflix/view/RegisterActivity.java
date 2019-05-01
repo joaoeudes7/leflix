@@ -1,4 +1,4 @@
-package com.jedev.leflix.Activies;
+package com.jedev.leflix.view;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -100,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
                     String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
                     usuario.setIdUsuario(idUsuario);
                     usuario.salvar();
-                    startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
+                    startActivity(new Intent(RegisterActivity.this, com.jedev.leflix.Activies.HomeActivity.class));
                     finish();
 
                 } else {
@@ -128,7 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
     public void abrirlogin(View view){
-        startActivity(new Intent(this,LoginActivity.class));
+        startActivity(new Intent(this, com.jedev.leflix.view.LoginActivity.class));
         finish();
 
 

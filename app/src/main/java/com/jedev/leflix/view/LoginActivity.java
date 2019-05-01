@@ -1,4 +1,4 @@
-package com.jedev.leflix.Activies;
+package com.jedev.leflix.view;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -21,7 +21,7 @@ import com.jedev.leflix.R;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth autenticacao;
-    private EditText campoNome, campoEmail, campoSenha;
+    private EditText campoEmail, campoSenha;
     private Button botaoLogin;
     private Usuario usuario;
 
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void abrirTelaPrincipal(){
-        startActivity(new Intent(this, HomeActivity.class));
+        startActivity(new Intent(this, com.jedev.leflix.view.HomeActivity.class));
         finish();
     }
 
