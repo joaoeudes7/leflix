@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "514664819578",
+    "firebase_url": "https://leflix.firebaseio.com",
+    "project_id": "leflix",
+    "storage_bucket": "leflix.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514664819578:android:700b04834fef0150",
+        "android_client_info": {
+          "package_name": "com.jedev.leflix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514664819578-l401i8ag0sv4dg0u3qkj9iadpf9ee0im.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jedev.leflix",
+            "certificate_hash": "a575a5fcd0ff9d71d1cf673ddc9279f0aa4ad94d"
+          }
+        },
+        {
+          "client_id": "514664819578-hanvsgk3k8jkle0b2b89b9gbq4kq9ujr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFExzrJD2VF5pX5goiBlGcHtz0g_KPrJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514664819578-hanvsgk3k8jkle0b2b89b9gbq4kq9ujr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
