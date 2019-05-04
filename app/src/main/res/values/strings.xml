@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">leflix</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="login">Entrar</string>
+    <string name="doLogin">Faça login para continuar</string>
 </resources>

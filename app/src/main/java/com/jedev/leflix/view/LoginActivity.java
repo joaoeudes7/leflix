@@ -1,8 +1,10 @@
 package com.jedev.leflix.view;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -29,10 +31,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        campoEmail = findViewById(R.id.logemail);
-        campoSenha = findViewById(R.id.logsenha);
-        botaoLogin = findViewById(R.id.loglogar);
-
+        campoEmail = findViewById(R.id.et_logemail);
+        campoSenha = findViewById(R.id.et_logsenha);
+        botaoLogin = findViewById(R.id.bt_login);
+        this.configureActionBar();
         botaoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +62,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void configureActionBar() {
+        ActionBar bar = getSupportActionBar();
+
+        bar.setTitle(R.string.login);
+        bar.setSubtitle(R.string.doLogin);
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.startGradientLogin)));
     }
 
     public void validarLogin(){
