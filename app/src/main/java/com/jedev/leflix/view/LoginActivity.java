@@ -1,9 +1,9 @@
 package com.jedev.leflix.view;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,22 +16,23 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.jedev.leflix.Config.ConfiguracaoFirebase;
-import com.jedev.leflix.Model.Usuario;
+import com.jedev.leflix.Model.User;
 import com.jedev.leflix.R;
 
 public class LoginActivity extends AppCompatActivity {
-    private FirebaseAuth autenticacao;
     private EditText campoEmail, campoSenha;
     private Button botaoLogin;
-    private Usuario usuario;
+    private User usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         campoEmail = findViewById(R.id.logemail);
         campoSenha = findViewById(R.id.logsenha);
         botaoLogin = findViewById(R.id.loglogar);
+
         botaoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,9 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                 if ( !textoEmail.isEmpty() ){
                     if ( !textoSenha.isEmpty() ){
 
-                        usuario = new Usuario();
-                        usuario.setEmail( textoEmail );
-                        usuario.setSenha( textoSenha );
+                        usuario = new User(textoEmail, textoSenha);
                         validarLogin();
 
                     }else {
@@ -65,10 +64,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void validarLogin(){
 
-        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        FirebaseAuth autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.signInWithEmailAndPassword(
                 usuario.getEmail(),
-                usuario.getSenha()
+                usuario.getPassword()
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

@@ -1,9 +1,9 @@
 package com.jedev.leflix.view;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,8 +20,10 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.jedev.leflix.Config.ConfiguracaoFirebase;
 import com.jedev.leflix.Helper.Base64Custom;
 import com.jedev.leflix.Helper.DateCustom;
-import com.jedev.leflix.Model.Usuario;
+import com.jedev.leflix.Model.User;
 import com.jedev.leflix.R;
+
+import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth autenticacao;
@@ -29,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button botaoCadastrar;
     private TextView abrirlogin;
 
-    private Usuario usuario;
+    private User usuario;
 
 
     @Override
@@ -46,23 +48,17 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String textoNome = campoNome.getText().toString();
-                String textoEmail = campoEmail.getText().toString();
-                String textoSenha = campoSenha.getText().toString();
+                String name = campoNome.getText().toString();
+                String email = campoEmail.getText().toString();
+                String password = campoSenha.getText().toString();
+                String createdOn = DateCustom.dataAtual();
 
                 //Validar se os campos foram preenchidos
-                if (!textoNome.isEmpty()) {
-                    if (!textoEmail.isEmpty()) {
-                        if (!textoSenha.isEmpty()) {
+                if (!name.isEmpty()) {
+                    if (!email.isEmpty()) {
+                        if (!password.isEmpty()) {
 
-                            usuario = new Usuario();
-                            usuario.setNome(textoNome);
-                            usuario.setEmail(textoEmail);
-                            usuario.setSenha(textoSenha);
-                            usuario.setActive(true);
-                            usuario.setCreated_on(DateCustom.dataAtual());
-                            usuario.setOfencive_days(0);
-                            usuario.setLast_date_ofensive("0");
+                            usuario = new User(name, email, password, true, createdOn, 0, "");
                             cadastrarUsuario();
 
                         } else {
@@ -89,25 +85,24 @@ public class RegisterActivity extends AppCompatActivity {
     public void cadastrarUsuario() {
 
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        autenticacao.createUserWithEmailAndPassword(
-                usuario.getEmail(), usuario.getSenha()
-        ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        autenticacao.createUserWithEmailAndPassword(usuario.getEmail(), usuario.getPassword())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()) {
 
                     String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
-                    usuario.setIdUsuario(idUsuario);
+                    usuario.setId(idUsuario);
                     usuario.salvar();
-                    startActivity(new Intent(RegisterActivity.this, com.jedev.leflix.Activies.HomeActivity.class));
+                    startActivity(new Intent(RegisterActivity.this, HomeActivity.class));
                     finish();
 
                 } else {
 
                     String excecao = "";
                     try {
-                        throw task.getException();
+                        throw Objects.requireNonNull(task.getException());
                     } catch (FirebaseAuthWeakPasswordException e) {
                         excecao = "Digite uma senha mais forte!";
                     } catch (FirebaseAuthInvalidCredentialsException e) {
