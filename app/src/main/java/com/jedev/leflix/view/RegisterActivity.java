@@ -124,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
     public void abrirlogin(View view){
         startActivity(new Intent(this, com.jedev.leflix.view.LoginActivity.class));
-        finish();
+        //  finish();
 
 
 

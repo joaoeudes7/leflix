@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,10 +67,25 @@ public class LoginActivity extends AppCompatActivity {
 
     public void configureActionBar() {
         ActionBar bar = getSupportActionBar();
-
+        bar.setDisplayHomeAsUpEnabled(true);
+        bar.setDisplayShowHomeEnabled(true);
         bar.setTitle(R.string.login);
         bar.setSubtitle(R.string.doLogin);
         bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.startGradientLogin)));
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void validarLogin(){
