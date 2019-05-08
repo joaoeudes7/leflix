@@ -63,17 +63,17 @@ public class RegisterActivity extends AppCompatActivity {
 
                         } else {
                             Toast.makeText(RegisterActivity.this,
-                                    "Preencha a senha!",
+                                    getString(R.string.preenchaSenha),
                                     Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         Toast.makeText(RegisterActivity.this,
-                                "Preencha o email!",
+                                getString(R.string.preenchaEmail),
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     Toast.makeText(RegisterActivity.this,
-                            "Preencha o nome!",
+                            getString(R.string.preenchaNome),
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -104,13 +104,13 @@ public class RegisterActivity extends AppCompatActivity {
                     try {
                         throw Objects.requireNonNull(task.getException());
                     } catch (FirebaseAuthWeakPasswordException e) {
-                        excecao = "Digite uma senha mais forte!";
+                        excecao = getString(R.string.senhaFraca);
                     } catch (FirebaseAuthInvalidCredentialsException e) {
-                        excecao = "Por favor, digite um e-mail vÃ¡lido";
+                        excecao = getString(R.string.emailInvalido);
                     } catch (FirebaseAuthUserCollisionException e) {
-                        excecao = "Este conta jÃ¡ foi cadastrada";
+                        excecao = getString(R.string.emailDuplicado);
                     } catch (Exception e) {
-                        excecao = "Erro ao cadastrar usuÃ¡rio: " + e.getMessage();
+                        excecao = getString(R.string.erroCadastrousuario) + e.getMessage();
                         e.printStackTrace();
                     }
 
