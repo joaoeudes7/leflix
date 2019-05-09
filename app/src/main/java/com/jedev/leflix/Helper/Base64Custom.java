@@ -1,4 +1,4 @@
-package com.jedev.leflix.Helper;
+package com.jedev.leflix.helper;
 
 import android.util.Base64;
 

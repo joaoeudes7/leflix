@@ -18,14 +18,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.jedev.leflix.Config.ConfiguracaoFirebase;
-import com.jedev.leflix.Model.User;
+import com.jedev.leflix.config.ConfiguracaoFirebase;
+import com.jedev.leflix.model.User;
 import com.jedev.leflix.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText campoEmail, campoSenha;
     private Button botaoLogin;
     private User usuario;
+
+    public LoginActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
