@@ -4,6 +4,8 @@
     <string name="password">Senha</string>
     <string name="login">Entrar</string>
     <string name="doLogin">Faça login para continuar</string>
+    <string name="cadastrese">Cadastre-se</string>
+    <string name="jaecadastrado">Já é cadastrado? clique aqui</string>
 
     <!-- Tela Cadastro -->
     <string name="preenchaSenha">É obrigatório informar a senha!</string>

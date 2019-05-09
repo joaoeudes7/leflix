@@ -18,14 +18,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
-import com.jedev.leflix.Config.ConfiguracaoFirebase;
-import com.jedev.leflix.Model.User;
+import com.jedev.leflix.config.ConfiguracaoFirebase;
+import com.jedev.leflix.model.User;
 import com.jedev.leflix.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText campoEmail, campoSenha;
     private Button botaoLogin;
+    private Button botaoCadastrar;
     private User usuario;
+
+    public LoginActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
 
         campoEmail = findViewById(R.id.et_logemail);
         campoSenha = findViewById(R.id.et_logsenha);
+        botaoCadastrar = findViewById(R.id.bt_gotoregister);
+
         botaoLogin = findViewById(R.id.bt_login);
         this.configureActionBar();
         botaoLogin.setOnClickListener(new View.OnClickListener() {
@@ -62,16 +68,28 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+        botaoCadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity.this.abrirCadastrar();
+
+            }
+        });
 
     }
 
+    public void abrirCadastrar(){
+        startActivity(new Intent(this, com.jedev.leflix.view.RegisterActivity.class));
+        finish();
+
+    }
     public void configureActionBar() {
+
         ActionBar bar = getSupportActionBar();
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setDisplayShowHomeEnabled(true);
+        bar.hide();
         bar.setTitle(R.string.login);
         bar.setSubtitle(R.string.doLogin);
-        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.startGradientLogin)));
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.verdePadrao)));
     }
 
 

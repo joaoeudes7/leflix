@@ -1,8 +1,8 @@
-package com.jedev.leflix.Model;
+package com.jedev.leflix.model;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
-import com.jedev.leflix.Config.ConfiguracaoFirebase;
+import com.jedev.leflix.config.ConfiguracaoFirebase;
 
 public class User {
     private String id;
@@ -14,7 +14,7 @@ public class User {
     private int ofencive_days;
     private String last_date_ofensive;
 
-    public User() {
+    private User() {
 
     }
 

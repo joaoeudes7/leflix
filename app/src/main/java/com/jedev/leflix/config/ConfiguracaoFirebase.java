@@ -1,4 +1,4 @@
-package com.jedev.leflix.Config;
+package com.jedev.leflix.config;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;

@@ -9,8 +9,8 @@ import android.view.View;
 import com.jedev.leflix.R;
 
 public class SplashActivity extends AppCompatActivity {
-
-    private static int TEMPO_SPLASH = 5000; // 5 segundos tela splash
+    //Mudei o tempo, pra ser mais rápido na hora de reiniciar o app
+    private static final int TEMPO_SPLASH = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
