@@ -4,6 +4,7 @@ import com.jedev.leflix.service.API.Entities.Volume;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface GoogleBooksAPI {
@@ -15,4 +16,7 @@ public interface GoogleBooksAPI {
             @Query("maxResults") String maxResults,
             @Query("q") String termSearch
     );
+
+    @GET("volumes/{volumeId}")
+    Call<Volume> getById(@Path("volumeId") String volumeId);
 }
