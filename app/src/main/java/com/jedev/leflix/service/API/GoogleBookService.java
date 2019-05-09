@@ -14,7 +14,6 @@ public class GoogleBookService {
 
     private static final String APP_KEY = "AIzaSyAUmtFwNet9BRJzlBUe22u4dFGyj_sHL94";
     private static final String DEFAULT_LANGUAGE = "pt";
-    private static final String PRINT_TYPE = "book";
 
     public GoogleBookService() {
         if (retrofit == null) {
@@ -34,6 +33,10 @@ public class GoogleBookService {
 
     public Call<Volume> searchBook(String term, String maxResults) {
         return googleBooksAPI.searchVolumes(APP_KEY, DEFAULT_LANGUAGE, maxResults, term);
+    }
+
+    public Call<Volume> getBookbyID(String id) {
+        return googleBooksAPI.getById(id);
     }
 
 }
