@@ -84,11 +84,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     public void configureActionBar() {
-        ActionBar bar = getSupportActionBar();
 
+        ActionBar bar = getSupportActionBar();
+        bar.hide();
         bar.setTitle(R.string.login);
         bar.setSubtitle(R.string.doLogin);
-        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.startGradientLogin)));
+        bar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.verdePadrao)));
     }
 
 
