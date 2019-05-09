@@ -10,7 +10,7 @@ import com.jedev.leflix.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int TEMPO_SPLASH = 5000; // 5 segundos tela splash
+    private static int TEMPO_SPLASH = 1000; // 5 segundos tela splash
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

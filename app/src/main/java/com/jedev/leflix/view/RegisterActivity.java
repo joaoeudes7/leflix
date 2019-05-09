@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth autenticacao;
     private EditText campoNome, campoEmail, campoSenha;
     private Button botaoCadastrar;
-    private TextView abrirlogin;
+    private Button bt_abrirlogin;
 
     private User usuario;
 
@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         campoNome = findViewById(R.id.regnome);
         campoEmail = findViewById(R.id.regemail);
         campoSenha = findViewById(R.id.regsenha);
-        abrirlogin=findViewById(R.id.telalogin);
+        bt_abrirlogin = findViewById(R.id.goToLogin);
         botaoCadastrar = findViewById(R.id.regcadastrar);
 
         botaoCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +77,12 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+        bt_abrirlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RegisterActivity.this.fazerLogin();
             }
         });
 
@@ -122,11 +128,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
     }
-    public void abrirlogin(View view){
-        startActivity(new Intent(this, com.jedev.leflix.view.LoginActivity.class));
-        //  finish();
-
-
+    public void fazerLogin(){
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
 
     }
 
