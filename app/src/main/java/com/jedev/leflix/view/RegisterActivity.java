@@ -17,10 +17,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
-import com.jedev.leflix.Config.ConfiguracaoFirebase;
-import com.jedev.leflix.Helper.Base64Custom;
-import com.jedev.leflix.Helper.DateCustom;
-import com.jedev.leflix.Model.User;
+import com.jedev.leflix.config.ConfiguracaoFirebase;
+import com.jedev.leflix.helper.Base64Custom;
+import com.jedev.leflix.helper.DateCustom;
+import com.jedev.leflix.model.User;
 import com.jedev.leflix.R;
 
 import java.util.Objects;
