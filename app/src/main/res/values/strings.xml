@@ -4,4 +4,14 @@
     <string name="password">Senha</string>
     <string name="login">Entrar</string>
     <string name="doLogin">Faça login para continuar</string>
+
+    <!-- Tela Cadastro -->
+    <string name="preenchaSenha">É obrigatório informar a senha!</string>
+    <string name="preenchaEmail">É obrigatório informar o email!</string>
+    <string name="preenchaNome">É obrigatório informar o nome!</string>
+
+    <string name="senhaFraca">Informe uma senha mais forte!</string>
+    <string name="emailInvalido">Informe um email válido!</string>
+    <string name="emailDuplicado">Email ifnromado já esta em uso no sistema, informe um novo!</string>
+    <string name="erroCadastrousuario">Erro ao cadastrar usuário: </string>
 </resources>
