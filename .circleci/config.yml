@@ -40,3 +40,8 @@ jobs:
 
       # run tests!
       - run: gradle test
+      - run: ./gradlew sonarqube \
+           -Dsonar.projectKey=leflix \
+           -Dsonar.organization=leflix \
+           -Dsonar.host.url=https://sonarcloud.io \
+           -Dsonar.login=734bd3908550b86b1b836771f64bf05892e9731b
