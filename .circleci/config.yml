@@ -1,47 +1,48 @@
-# Java Gradle CircleCI 2.0 configuration file
+# Android CircleCI 2.0 configuration file
 #
-# Check https://circleci.com/docs/2.0/language-java/ for more details
+# Check https://circleci.com/docs/2.0/language-android/ for more details
 #
 version: 2
+commands:
+  scanner:
+    parameters:
+      app:
+        type: string
+        description: "Github repo"
+    steps:
+    - run:
+        name: Install Sonarqube scanner
+        command: |
+
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+          unzip sonar-scanner-cli-3.2.0.1227-linux.zip
+
+    - run:
+        name: Run Sonarqube scanner
+        command:
+
 jobs:
   build:
+    working_directory: ~/app
     docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/repo
-
+      - image: circleci/android:api-28-alpha
     environment:
-      # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
-      TERM: dumb
-
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: gradle dependencies
-
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "presentation/build.gradle" }}
+#      - run:
+#         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+#         command: sudo chmod +x ./gradlew
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
       - save_cache:
           paths:
             - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "presentation/build.gradle" }}
+      - run:
+          name: SonarCloud
+          command: ./gradlew sonarqube -Dsonar.sources=~ -Dsonar.projectKey=leflix -Dsonar.organization=leflix -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=734bd3908550b86b1b836771f64bf05892e9731b
 
-      # run tests!
-      - run: gradle test
-      - run: ./gradlew sonarqube \
-           -Dsonar.projectKey=leflix \
-           -Dsonar.organization=leflix \
-           -Dsonar.host.url=https://sonarcloud.io \
-           -Dsonar.login=734bd3908550b86b1b836771f64bf05892e9731b

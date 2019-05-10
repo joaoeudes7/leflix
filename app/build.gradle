@@ -17,6 +17,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests {
+            all {
+                maxHeapSize = "1024m"
+            }
+        }
+    }
 }
 
 dependencies {
