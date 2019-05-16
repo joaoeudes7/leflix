@@ -6,4 +6,5 @@
     <color name="startGradientLogin">#38f9d7</color>
     <color name="endGradientLogin">#43e97b</color>
     <color name="verdePadrao">#1DB954</color>
+    <color name="conteudo">#999da4</color>
 </resources>

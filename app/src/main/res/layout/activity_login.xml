@@ -75,7 +75,7 @@
         android:layout_marginRight="14dp"
         android:layout_weight="1"
         android:background="@drawable/button_cadastrese"
-        android:text="@string/cadastrese"
+        android:text="CADATRE"
         android:textColor="@android:color/white" />
 
 
