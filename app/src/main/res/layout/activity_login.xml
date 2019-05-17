@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="false"
@@ -42,7 +41,7 @@
 
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textPersonName"
+        android:inputType="none|textEmailAddress"
         android:padding="5dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
@@ -80,8 +79,8 @@
         android:layout_marginBottom="16dp"
         android:layout_weight="1"
         android:background="@drawable/button_login"
-        android:text="@string/login"
         android:textColor="@android:color/white"
+        android:text="@string/login"
         app:layout_constraintBottom_toTopOf="@+id/btn_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -95,11 +94,10 @@
         android:layout_marginBottom="32dp"
         android:layout_weight="1"
         android:background="@drawable/button_cadastrese"
-        android:text="@string/cadastrese"
         android:textColor="@android:color/white"
+        android:text="@string/cadastrese"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
