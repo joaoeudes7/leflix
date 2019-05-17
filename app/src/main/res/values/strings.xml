@@ -14,6 +14,6 @@
 
     <string name="senhaFraca">Informe uma senha mais forte!</string>
     <string name="emailInvalido">Informe um email válido!</string>
-    <string name="emailDuplicado">Email ifnromado já esta em uso no sistema, informe um novo!</string>
+    <string name="emailDuplicado">Email informado já está em uso no sistema!</string>
     <string name="erroCadastrousuario">Erro ao cadastrar usuário: </string>
 </resources>
