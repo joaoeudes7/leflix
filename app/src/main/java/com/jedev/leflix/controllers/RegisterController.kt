@@ -4,28 +4,31 @@ import android.app.Activity
 import android.content.Intent
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.auth.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.jedev.leflix.R
-import com.jedev.leflix.helper.DateCustom
 import com.jedev.leflix.model.User
 import com.jedev.leflix.service.firebase.UserService
+import com.jedev.leflix.utils.DateCustom
 import com.jedev.leflix.utils.Extract
 import com.jedev.leflix.view.HomeActivity
 import com.jedev.leflix.view.LoginActivity
-import java.util.*
 
 class RegisterController(private val context: Activity) {
 
-    fun onRegister(edtEmail: EditText, edtPassword: EditText) {
+    fun onRegister(edtName: EditText, edtEmail: EditText, edtPassword: EditText) {
         val fireAuth = FirebaseAuth.getInstance()
 
+        val name = Extract.valueOfEditText(edtName)
         val email = Extract.valueOfEditText(edtEmail)
         val password = Extract.valueOfEditText(edtPassword)
 
-        if (this.validateLogin(edtEmail, edtPassword)) {
+        if (this.validateLogin(name, email, password)) {
             fireAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val user = User(email, password)
+                    val user = User(name, email, password)
                     user.id = DateCustom.Base64Custom.codificarBase64(email)
 
                     UserService().save(user)
@@ -58,14 +61,12 @@ class RegisterController(private val context: Activity) {
         }
     }
 
-    private fun validateLogin(edtEmail: EditText, edtPassword: EditText): Boolean {
-        val email = edtEmail.text.toString().trim()
-        val password = edtPassword.text.toString().trim()
-
+    private fun validateLogin(name: String, email: String, password: String): Boolean {
+        val isValidName = name.length > 5
         val isValidEmail = email.length > 6 && email.contains("@")
         val isValidPassword = password.length > 4
 
-        return isValidEmail && isValidPassword
+        return isValidName && isValidEmail && isValidPassword
     }
 
     fun openLogin() {

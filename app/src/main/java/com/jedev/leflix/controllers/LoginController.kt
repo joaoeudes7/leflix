@@ -18,7 +18,7 @@ class LoginController(private val context: Activity) {
         val email = edtEmail.text.toString().trim()
         val password = edtPassword.text.toString().trim()
 
-        if (this.validateLogin(edtEmail, edtPassword)) {
+        if (this.validateLogin(email, password)) {
             fireAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     this.openHome()
@@ -46,10 +46,7 @@ class LoginController(private val context: Activity) {
     }
 
 
-    private fun validateLogin(edtEmail: EditText, edtPassword: EditText): Boolean {
-        val email = edtEmail.text.toString().trim()
-        val password = edtPassword.text.toString().trim()
-
+    private fun validateLogin(email: String, password: String): Boolean {
         val isValidEmail = email.length > 6 && email.contains("@")
         val isValidPassword = password.length > 4
 

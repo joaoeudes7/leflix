@@ -21,7 +21,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         btn_register.setOnClickListener {
-            controller.onRegister(edt_email, edt_password)
+            controller.onRegister(edt_name, edt_email, edt_password)
         }
     }
 
