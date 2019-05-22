@@ -1,11 +1,9 @@
 package com.jedev.leflix.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.Toolbar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +11,6 @@ import com.jedev.leflix.R;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 public class HomeActivity extends AppCompatActivity {
-    private EditText search;
     MaterialSearchView materialSearchView;
 
 
@@ -22,25 +19,20 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-        Intent intent = new Intent();
-        intent.putExtra("value", search.getText().toString());
         materialSearchView = findViewById(R.id.searchview);
-        materialSearchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+        materialSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
-            public void onSearchViewShown() {
-
+            public boolean onQueryTextSubmit(String query) {
+                //Do some magic
+                return false;
             }
 
             @Override
-            public void onSearchViewClosed() {
-
+            public boolean onQueryTextChange(String newText) {
+                Toast.makeText(HomeActivity.this, newText, Toast.LENGTH_LONG);
+                return false;
             }
         });
-
-
     }
 
     @Override
