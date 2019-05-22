@@ -7,6 +7,7 @@
     <string name="cadastrese">Cadastre-se</string>
     <string name="jaecadastrado">Já é cadastrado? clique aqui</string>
 
+
     <!-- Tela Cadastro -->
     <string name="preenchaSenha">É obrigatório informar a senha!</string>
     <string name="preenchaEmail">É obrigatório informar o email!</string>
