@@ -1,5 +1,6 @@
 package com.jedev.leflix.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -25,7 +26,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         auth = FirebaseAuth.getInstance()
-
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
@@ -74,27 +74,26 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
+
         when (item.itemId) {
-            R.id.nav_home -> {
-                // Handle the camera action
+            R.id.nav_inicio -> {
+                // chama activity inicio
             }
-            R.id.nav_grupo -> {
-
+            R.id.nav_grupos -> {
+                // chama activity dos grupos
             }
-            R.id.nav_slideshow -> {
-
+            R.id.nav_em_alta -> {
+                // chama activity em alta
+            }
+            R.id.nav_historico -> {
+                // chama activity historico
+            }
+            R.id.nav_meu_perfil -> {
+                // chama activity meu perfil
             }
             R.id.nav_sair -> {
+                // faz logoff
                 auth?.signOut()
-
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
