@@ -52,6 +52,5 @@ public class SplashActivity extends AppCompatActivity {
         }, TEMPO_SPLASH);
     }
 
-
 }
 
