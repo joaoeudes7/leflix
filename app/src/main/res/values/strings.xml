@@ -35,4 +35,5 @@
     <string name="menu_historico">Histórico</string>
     <string name="menu_pefil">Meu Perfil</string>
     <string name="menu_sair">Sair</string>
+    <string name="title_activity_grupos">GruposActivity</string>
 </resources>

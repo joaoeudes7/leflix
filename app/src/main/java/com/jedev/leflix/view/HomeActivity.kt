@@ -13,12 +13,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.jedev.leflix.R
 
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private var auth: FirebaseAuth? = null
-    private var user: FirebaseUser? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +80,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_grupos -> {
                 // chama activity dos grupos
+
+
             }
             R.id.nav_em_alta -> {
                 // chama activity em alta
@@ -94,6 +95,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_sair -> {
                 // faz logoff
                 auth?.signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)

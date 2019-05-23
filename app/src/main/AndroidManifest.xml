@@ -12,13 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".view.AddGrupoActivity"></activity>
+        <activity
+            android:name=".view.GruposActivity"
+            android:label="@string/title_activity_grupos"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.ResultsBooks" />
-
         <activity android:name=".view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,17 +29,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".view.LoginActivity"
-            android:label="@string/title_activity_login">
-
-        </activity>
-
-        <activity android:name=".view.RegisterActivity"
-            android:label="@string/title_activity_cadastro">
-
-        </activity>
-
+        <activity
+            android:name=".view.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".view.RegisterActivity"
+            android:label="@string/title_activity_cadastro" />
     </application>
 
 </manifest>
