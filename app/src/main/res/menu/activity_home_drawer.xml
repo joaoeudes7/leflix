@@ -5,33 +5,33 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_inicio_preto"
+            android:title="@string/menu_inicio" />
         <item
-            android:id="@+id/nav_grupo"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Grupo" />
+            android:id="@+id/nav_grupos"
+            android:icon="@drawable/ic_grupos_preto"
+            android:title="@string/menu_grupos" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_em_alta"
+            android:icon="@drawable/ic_em_alta_preto"
+            android:title="@string/menu_em_alta" />
         <item
-            android:id="@+id/nav_sair"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="sair" />
+            android:id="@+id/nav_historico"
+            android:icon="@drawable/ic_historico_preto"
+            android:title="@string/menu_historico" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Conta">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/nav_meu_perfil"
+                android:icon="@drawable/ic_meu_perfil_preto"
+                android:title="@string/menu_pefil" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:id="@+id/nav_sair"
+                android:icon="@drawable/ic_sair_preto"
+                android:title="@string/menu_sair" />
         </menu>
     </item>
 
