@@ -18,30 +18,31 @@ class LoginController(private val context: Activity) {
         val email = edtEmail.text.toString().trim()
         val password = edtPassword.text.toString().trim()
 
-        if (this.validateLogin(email, password)) {
-            fireAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    this.openHome()
-                } else {
-                    val msgError: String
 
-                    try {
-                        throw task.exception!!
-                    } catch (e: FirebaseAuthInvalidUserException) {
-                        msgError = "Usuário não está cadastrado."
-                    } catch (e: FirebaseAuthInvalidCredentialsException) {
-                        msgError = "E-mail e senha não correspondem a um usuário cadastrado"
-                    } catch (e: Exception) {
-                        msgError = "Erro ao cadastrar usuário: " + e.message
-                        e.printStackTrace()
-                    }
-
-                    Toast.makeText(context, msgError, Toast.LENGTH_LONG).show()
-                }
-            }
-        } else {
+        if (!this.validateLogin(email, password)) {
             val msg = "Preencha todos os campos!"
-            Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+            return Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+        }
+
+        fireAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                this.openHome()
+            } else {
+                val msgError: String
+
+                try {
+                    throw task.exception!!
+                } catch (e: FirebaseAuthInvalidUserException) {
+                    msgError = "Usuário não está cadastrado."
+                } catch (e: FirebaseAuthInvalidCredentialsException) {
+                    msgError = "E-mail e senha não correspondem a um usuário cadastrado"
+                } catch (e: Exception) {
+                    msgError = "Erro ao cadastrar usuário: " + e.message
+                    e.printStackTrace()
+                }
+
+                Toast.makeText(context, msgError, Toast.LENGTH_LONG).show()
+            }
         }
     }
 

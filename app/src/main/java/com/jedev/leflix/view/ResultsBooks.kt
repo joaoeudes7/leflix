@@ -1,7 +1,7 @@
 package com.jedev.leflix.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.jedev.leflix.R
 
 class ResultsBooks : AppCompatActivity() {

@@ -10,9 +10,9 @@
         android:id="@+id/nomegrupo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="176dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:hint="Nome do Grupo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -23,9 +23,9 @@
         android:id="@+id/descricaogrupo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:hint="Descrição"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,14 +37,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
 
 
-        android:layout_marginEnd="8dp"
-        android:text="Defina a privacidade do Grupo"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        android:text="Grupo Público"
+        android:textSize="18sp"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descricaogrupo" />
 
@@ -66,24 +64,12 @@
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="47dp"
-
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:enabled="false"
-        android:textOff="Publico"
-        android:textOn="Privado"
+        android:editable="true"
+        android:enabled="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/descricaogrupo" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.82" />
 
     <ImageView
         android:id="@+id/icongrupo"

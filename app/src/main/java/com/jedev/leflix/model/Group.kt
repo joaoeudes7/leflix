@@ -8,6 +8,7 @@ class Group : IEntity {
     lateinit var photo: String
     lateinit var description: String
     lateinit var privacy: PRIVACY
+    val members = mutableListOf<User>()
 
     constructor()
 

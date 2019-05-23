@@ -79,9 +79,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 // chama activity inicio
             }
             R.id.nav_grupos -> {
-                // chama activity dos grupos
-
-
+                startActivity(Intent(this, GroupsActivity::class.java))
             }
             R.id.nav_em_alta -> {
                 // chama activity em alta

@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view.AddGrupoActivity"></activity>
         <activity
-            android:name=".view.GruposActivity"
+            android:name=".view.GroupsActivity"
             android:label="@string/title_activity_grupos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
