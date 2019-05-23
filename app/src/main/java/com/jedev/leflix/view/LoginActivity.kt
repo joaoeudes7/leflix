@@ -4,6 +4,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.jedev.leflix.R
 import com.jedev.leflix.controllers.LoginController
 import kotlinx.android.synthetic.main.activity_login.*
@@ -31,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
         bar!!.hide()
         bar.setTitle(R.string.login)
         bar.setSubtitle(R.string.doLogin)
-        bar.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.verdePadrao)))
+        bar.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.verdePadrao)))
     }
 
 
