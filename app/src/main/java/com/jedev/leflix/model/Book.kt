@@ -1,11 +1,12 @@
 package com.jedev.leflix.model
 
-class Book : IEntity {
-    override lateinit var id: String
-    private lateinit var name: String
-    private lateinit var author: String
-    private lateinit var publish_company: String
-    private lateinit var synopsis: String
-    private var pages: Int = 0
-    private var chapters: Int = 0
-}
+data class Book(var id: String,
+                var title: String,
+                var subtitle: String,
+                var author: String,
+                var publish_company: String,
+                var synopsis: String,
+                var pages: Int = 0,
+                var chapters: Int = 0,
+                var value_review: Double,
+                var total_reviews: Int)
