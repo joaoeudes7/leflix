@@ -9,13 +9,14 @@
     tools:showIn="@layout/app_bar_home">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_livrosrelevantes"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/simple_book_item">
 
 
     </androidx.recyclerview.widget.RecyclerView>
