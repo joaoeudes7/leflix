@@ -13,7 +13,7 @@ interface GoogleBooksAPI {
     fun searchVolumes(
             @Query("key") apiKey: String,
             @Query("langRestrict") lang: String,
-            @Query("maxResults") maxResults: String,
+            @Query("maxResults") maxResults: Int,
             @Query("q") termSearch: String
     ): Call<Volume>
 

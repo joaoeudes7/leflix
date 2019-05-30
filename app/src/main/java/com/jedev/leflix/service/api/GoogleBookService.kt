@@ -31,7 +31,7 @@ class GoogleBookService {
         }
     }
 
-    fun searchBook(term: String, maxResults: String): Call<Volume> {
+    fun searchBook(term: String, maxResults: Int): Call<Volume> {
         return googleBooksAPI!!.searchVolumes(APP_KEY, DEFAULT_LANGUAGE, maxResults, term)
     }
 
