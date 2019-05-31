@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/nav_user_email" />
 
     <EditText
         android:id="@+id/edt_email"
@@ -102,14 +102,14 @@
         android:background="@drawable/button_ja_cadastrado"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nav_user_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-light"
-        android:text="Informe seus dados.."
+        android:text="Informe seus dados"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
