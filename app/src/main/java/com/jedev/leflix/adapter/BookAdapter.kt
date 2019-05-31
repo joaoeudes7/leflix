@@ -47,19 +47,21 @@ class BookAdapter(private var reports: List<Item>) : androidx.recyclerview.widge
     class CustomViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         val card: CardView = itemView.cardview
-        private val thumbnail: ImageView = itemView.imageView!!
+        private val thumbnail: ImageView = itemView.nav_user_photo!!
         private val title: TextView = itemView.title!!
         private val descriptionView: TextView = itemView.subtitle!!
 
         fun bind(item: Item) {
-            var thumbUrl = item.volumeInfo.imageLinks.smallThumbnail
-            if (thumbUrl.startsWith("http://"))
-                thumbUrl = thumbUrl.replace("http://", "https://")
 
-            Glide
-                    .with(itemView.context)
-                    .load(thumbUrl)
-                    .into(thumbnail)
+            item.volumeInfo.imageLinks?.smallThumbnail?.let {
+                    val thumbnail = it.replace("http://", "https://")
+
+                    Glide
+                            .with(itemView.context)
+                            .load(thumbnail)
+                            .into(this.thumbnail)
+
+            }
 
             title.text = item.volumeInfo.title
             descriptionView.text = item.volumeInfo.subtitle
