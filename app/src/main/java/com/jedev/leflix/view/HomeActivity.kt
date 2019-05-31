@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -16,8 +17,9 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.content_home.*
 
+
 class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    val auth by lazy {
+    private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
 
@@ -35,8 +37,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        nav_view.setNavigationItemSelectedListener(this)
-
+        setupNav()
         setupRecycleView()
     }
 
@@ -57,18 +58,22 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Optional: if you want to expand SearchView from icon to edittext view
         searchItem.expandActionView()
 
-        val searchView = searchItem.actionView as androidx.appcompat.widget.SearchView
-        return true
-    }
+        val searchView = searchItem.actionView as SearchView
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                return true
+            }
+            override fun onQueryTextSubmit(query: String): Boolean {
+                val intent = Intent(this@HomeActivity, ResultsBooks::class.java)
+
+                intent.putExtra("query", query)
+                startActivity(intent)
+                return true
+            }
+        })
+
+        return true
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -91,7 +96,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_sair -> {
                 // faz logoff
-                auth?.signOut()
+                auth.signOut()
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
 
@@ -100,6 +105,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+
+    private fun setupNav() {
+        nav_view.setNavigationItemSelectedListener(this)
     }
 
     private fun setupRecycleView() {

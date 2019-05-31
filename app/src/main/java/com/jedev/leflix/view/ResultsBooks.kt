@@ -21,18 +21,22 @@ class ResultsBooks : AppCompatActivity() {
 
         setupRecycleView()
 
-        GoogleBookService().searchBook("kotlin", 20).enqueue(object : Callback<Volume?> {
-            override fun onResponse(call: Call<Volume?>, response: Response<Volume?>) {
-                response.body()?.let {
-                    recyclerView.adapter = BookAdapter(it.items)
-                }
-            }
+        intent.extras?.getString("query")?.let { query ->
+                title = "Resultados de '$query''"
 
-            override fun onFailure(call: Call<Volume?>, t: Throwable) {
-                Log.d("ERROR GOOGLE BOOK API:", t.message)
-                Toast.makeText(this@ResultsBooks, "Falha ao consultar dados", Toast.LENGTH_SHORT).show()
-            }
-        })
+                GoogleBookService().searchBook(query, 20).enqueue(object : Callback<Volume?> {
+                    override fun onResponse(call: Call<Volume?>, response: Response<Volume?>) {
+                        response.body()?.let {
+                            recyclerView.adapter = BookAdapter(it.items)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Volume?>, t: Throwable) {
+                        Log.d("ERROR GOOGLE BOOK API:", t.message)
+                        Toast.makeText(this@ResultsBooks, "Falha ao consultar dados", Toast.LENGTH_SHORT).show()
+                    }
+                })
+        }
     }
 
 

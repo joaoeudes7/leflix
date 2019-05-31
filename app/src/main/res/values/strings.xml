@@ -36,4 +36,6 @@
     <string name="menu_pefil">Meu Perfil</string>
     <string name="menu_sair">Sair</string>
     <string name="title_activity_grupos">GruposActivity</string>
+    <string name="search_book">Digite o título do livro</string>
+    <string name="search">Pesquisar</string>
 </resources>
