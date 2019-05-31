@@ -28,14 +28,14 @@ class RegisterController(private val context: Activity) {
         if (this.validateLogin(name, email, password)) {
             fireAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val user = User(name, email, password)
-                    user.id = DateCustom.Base64Custom.codificarBase64(email)
+                    task.result?.user?.let {
+                        val user = User(it.uid, name, email)
 
-                    UserService().save(user)
+                        UserService().save(user)
 
-                    context.startActivity(Intent(context, HomeActivity::class.java))
-                    context.finish()
-
+                        context.startActivity(Intent(context, HomeActivity::class.java))
+                        context.finish()
+                    }
                 } else {
                     val msgError: String
 
