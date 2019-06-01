@@ -99,6 +99,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_meu_perfil -> {
                 // chama activity meu perfil
+                startActivity(Intent(this, MeuPerfilActivity::class.java))
             }
             R.id.nav_sair -> {
                 // faz logoff

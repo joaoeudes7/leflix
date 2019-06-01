@@ -43,4 +43,6 @@
 
     <string name="sucessoRecuperarSenha">Um email com as instruções de recuperar senha foi enviado para o endereço informado!</string>
     <string name="erroRecuperarSenha">Email informado não foi encontrado em nosso sistema!</string>
+
+    <string name="meu_perfil_titulo_tela">Meu Perfil</string>
 </resources>

@@ -15,8 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.RecuperarSenhaActivity"
-            android:label="@string/recuperarSenha"></activity>
+        <activity android:name=".view.MeuPerfilActivity"
+            android:label="@string/meu_perfil_titulo_tela"></activity>
+        <activity
+            android:name=".view.RecuperarSenhaActivity"
+            android:label="@string/recuperarSenha" />
         <activity android:name=".view.GroupDetailsActivity" />
         <activity android:name=".view.BookDetails" />
         <activity android:name=".view.HistoricActivity" />
