@@ -22,11 +22,17 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
+    val user = FirebaseAuth.getInstance().currentUser
+    lateinit var name: String
+    lateinit var email: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
+
+
+
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -109,7 +115,18 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     private fun setupNav() {
-        nav_view.setNavigationItemSelectedListener(this)
+        if (user != null) {
+            val navigationView = findViewById<NavigationView>(R.id.nav_view)
+            val headerView = navigationView.getHeaderView(0)
+            val title = headerView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.nav_user)
+            val email = headerView.findViewById<androidx.appcompat.widget.AppCompatTextView>(R.id.nav_user_email)
+            val nomeusuario = user.displayName.toString()
+            val emailusuario = user.email.toString()
+            title.text = nomeusuario
+            email.text = emailusuario
+
+            nav_view.setNavigationItemSelectedListener(this)
+        }
     }
 
     private fun setupRecycleView() {

@@ -51,6 +51,7 @@ class AddGrupoActivity : AppCompatActivity() {
 
                         group = Group(name, description, urlPhoto, type)
                         GroupService().add(group)
+                        finish()
                     }
                 }
 
@@ -69,7 +70,8 @@ class AddGrupoActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-                imageUri = data.data!!
+
+            imageUri = data.data!!
 
                 val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
                 ImageUtils.compressImage(bitmap)

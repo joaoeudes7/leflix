@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.BookDetails"></activity>
+        <activity android:name=".view.GroupDetailsActivity"></activity>
+        <activity android:name=".view.BookDetails" />
         <activity android:name=".view.HistoricActivity" />
         <activity android:name=".view.AddGrupoActivity" />
         <activity

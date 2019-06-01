@@ -2,19 +2,16 @@ package com.jedev.leflix.controllers
 
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
-import com.jedev.leflix.R
+import com.google.firebase.auth.*
 import com.jedev.leflix.model.User
 import com.jedev.leflix.service.firebase.UserService
-import com.jedev.leflix.utils.DateCustom
 import com.jedev.leflix.utils.Extract
 import com.jedev.leflix.view.HomeActivity
 import com.jedev.leflix.view.LoginActivity
+
 
 class RegisterController(private val context: Activity) {
 
@@ -29,9 +26,20 @@ class RegisterController(private val context: Activity) {
             fireAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     task.result?.user?.let {
+                        val userfire = FirebaseAuth.getInstance().currentUser
                         val user = User(it.uid, name, email)
 
                         UserService().save(user)
+
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                                .setDisplayName(name).build()
+                        userfire?.updateProfile(profileUpdates)
+                                ?.addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        Log.d("olamundo", "User  updated.")
+                                    }
+                                }
+
 
                         context.startActivity(Intent(context, HomeActivity::class.java))
                         context.finish()
@@ -42,13 +50,13 @@ class RegisterController(private val context: Activity) {
                     try {
                         throw task.exception!!
                     } catch (e: FirebaseAuthWeakPasswordException) {
-                        msgError = context.getString(R.string.senhaFraca)
+                        msgError = context.getString(com.jedev.leflix.R.string.senhaFraca)
                     } catch (e: FirebaseAuthInvalidCredentialsException) {
-                        msgError = context.getString(R.string.emailInvalido)
+                        msgError = context.getString(com.jedev.leflix.R.string.emailInvalido)
                     } catch (e: FirebaseAuthUserCollisionException) {
-                        msgError = context.getString(R.string.emailDuplicado)
+                        msgError = context.getString(com.jedev.leflix.R.string.emailDuplicado)
                     } catch (e: Exception) {
-                        msgError = context.getString(R.string.erroCadastrousuario) + e.message
+                        msgError = context.getString(com.jedev.leflix.R.string.erroCadastrousuario) + e.message
                         e.printStackTrace()
                     }
 
