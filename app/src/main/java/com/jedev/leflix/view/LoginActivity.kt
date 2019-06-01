@@ -25,6 +25,10 @@ class LoginActivity : AppCompatActivity() {
         btn_register.setOnClickListener {
             controller.openRegister()
         }
+
+        tvRecuperarSenha.setOnClickListener{
+            controller.openRecuperarSenha();
+        }
     }
 
     private fun configureActionBar() {

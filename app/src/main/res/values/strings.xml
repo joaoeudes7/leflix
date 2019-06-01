@@ -3,6 +3,8 @@
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
     <string name="login">Entrar</string>
+    <string name="recuperarSenha">Recuperar Senha</string>
+    <string name="voltar">Voltar</string>
     <string name="doLogin">Faça login para continuar</string>
     <string name="cadastrese">Cadastre-se</string>
     <string name="jaecadastrado">Já é cadastrado? clique aqui</string>
@@ -38,4 +40,7 @@
     <string name="title_activity_grupos">GruposActivity</string>
     <string name="search_book">Digite o título do livro</string>
     <string name="search">Pesquisar</string>
+
+    <string name="sucessoRecuperarSenha">Um email com as instruções de recuperar senha foi enviado para o endereço informado!</string>
+    <string name="erroRecuperarSenha">Email informado não foi encontrado em nosso sistema!</string>
 </resources>

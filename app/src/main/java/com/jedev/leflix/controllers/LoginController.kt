@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.jedev.leflix.view.HomeActivity
+import com.jedev.leflix.view.RecuperarSenhaActivity
 import com.jedev.leflix.view.RegisterActivity
 
 class LoginController(private val context: Activity) {
@@ -32,7 +33,7 @@ class LoginController(private val context: Activity) {
 
                 try {
                     throw task.exception!!
-                } catch (e: FirebaseAuthInvalidUserException) {
+                } catch (e:FirebaseAuthInvalidUserException) {
                     msgError = "Usuário não está cadastrado."
                 } catch (e: FirebaseAuthInvalidCredentialsException) {
                     msgError = "E-mail e senha não correspondem a um usuário cadastrado"
@@ -58,6 +59,11 @@ class LoginController(private val context: Activity) {
         val intentRegister = Intent(context, RegisterActivity::class.java)
         context.startActivity(intentRegister)
         context.finish()
+    }
+
+    fun openRecuperarSenha() {
+        val intentRecuperarSenha = Intent(context, RecuperarSenhaActivity::class.java)
+        context.startActivity(intentRecuperarSenha)
     }
 
     private fun openHome() {
