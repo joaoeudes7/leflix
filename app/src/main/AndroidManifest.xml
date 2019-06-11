@@ -15,8 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.MeuPerfilActivity"
-            android:label="@string/meu_perfil_titulo_tela"></activity>
+        <activity android:name=".view.NewReading"></activity>
+        <activity
+            android:name=".view.MeuPerfilActivity"
+            android:label="@string/meu_perfil_titulo_tela" />
         <activity
             android:name=".view.RecuperarSenhaActivity"
             android:label="@string/recuperarSenha" />
@@ -33,7 +35,9 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.ResultsBooks" />
-        <activity android:name=".view.SplashActivity">
+        <activity
+            android:name=".view.SplashActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
