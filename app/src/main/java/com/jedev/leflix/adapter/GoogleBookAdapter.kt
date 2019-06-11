@@ -15,7 +15,7 @@ import com.jedev.leflix.view.BookDetails
 import kotlinx.android.synthetic.main.nav_header_home.view.*
 import kotlinx.android.synthetic.main.simple_book_item.view.*
 
-class BookAdapter(private var reports: List<Item>) : androidx.recyclerview.widget.RecyclerView.Adapter<BookAdapter.CustomViewHolder>() {
+class GoogleBookAdapter(private var reports: List<Item>) : androidx.recyclerview.widget.RecyclerView.Adapter<GoogleBookAdapter.CustomViewHolder>() {
     lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
