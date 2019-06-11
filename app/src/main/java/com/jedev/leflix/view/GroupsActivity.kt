@@ -14,6 +14,8 @@ class GroupsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_grupos)
         setSupportActionBar(toolbar)
 
+        setupRecycleView()
+
         fab.setOnClickListener {
             val intent = Intent(this, AddGrupoActivity::class.java)
             startActivity(intent)

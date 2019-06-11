@@ -32,8 +32,6 @@ class GroupAdapter(private var reports: List<Group>) : androidx.recyclerview.wid
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val report = reports[position]
 
-
-
         holder.card.setOnClickListener {
             goToDetails(report)
         }

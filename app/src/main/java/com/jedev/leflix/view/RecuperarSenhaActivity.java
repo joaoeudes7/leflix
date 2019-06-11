@@ -36,7 +36,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
 
                 if (etEmail.getText().toString().isEmpty()) {
                     Toast.makeText(getApplicationContext(), R.string.preenchaEmail, Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     FirebaseAuth auth = FirebaseAuth.getInstance();
 
                     String emailAddress = etEmail.getText().toString();
@@ -48,7 +48,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(), R.string.sucessoRecuperarSenha, Toast.LENGTH_LONG).show();
                                         finish();
-                                    }else{
+                                    } else {
                                         Toast.makeText(getApplicationContext(), R.string.erroRecuperarSenha, Toast.LENGTH_LONG).show();
                                     }
                                 }

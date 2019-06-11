@@ -5,7 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.jedev.leflix.R
-import com.jedev.leflix.adapter.BookAdapter
+import com.jedev.leflix.adapter.GoogleBookAdapter
 import com.jedev.leflix.service.api.GoogleBookService
 import com.jedev.leflix.service.api.entities.Volume
 import kotlinx.android.synthetic.main.activity_results_books.*
@@ -27,7 +27,7 @@ class ResultsBooks : AppCompatActivity() {
                 GoogleBookService().searchBook(query, 20).enqueue(object : Callback<Volume?> {
                     override fun onResponse(call: Call<Volume?>, response: Response<Volume?>) {
                         response.body()?.let {
-                            recyclerView.adapter = BookAdapter(it.items)
+                            recyclerView.adapter = GoogleBookAdapter(it.items)
                         }
                     }
 

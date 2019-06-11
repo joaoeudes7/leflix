@@ -19,7 +19,6 @@ class LoginController(private val context: Activity) {
         val email = edtEmail.text.toString().trim()
         val password = edtPassword.text.toString().trim()
 
-
         if (!this.validateLogin(email, password)) {
             val msg = "Preencha todos os campos!"
             return Toast.makeText(context, msg, Toast.LENGTH_LONG).show()

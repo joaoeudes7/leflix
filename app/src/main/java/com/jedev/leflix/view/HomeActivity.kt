@@ -22,17 +22,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
-    val user = FirebaseAuth.getInstance().currentUser
-    lateinit var name: String
-    lateinit var email: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
-
-
-
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -106,7 +100,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 auth.signOut()
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
-
             }
         }
 
@@ -116,6 +109,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
     private fun setupNav() {
+        val user = FirebaseAuth.getInstance().currentUser
+
         if (user != null) {
             val navigationView = findViewById<NavigationView>(R.id.nav_view)
             val headerView = navigationView.getHeaderView(0)
