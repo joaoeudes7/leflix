@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface GoogleBooksAPI {
 
-    @GET("volumes?printType=books")
+    @GET("volumes?printType=books&orderBy=newest")
     fun searchVolumes(
             @Query("key") apiKey: String,
             @Query("langRestrict") lang: String,
@@ -18,5 +18,8 @@ interface GoogleBooksAPI {
     ): Call<Volume>
 
     @GET("volumes/{volumeId}")
-    fun getById(@Path("volumeId") volumeId: String): Call<Volume>
+    fun getById(
+            @Path("volumeId") volumeId: String,
+            @Query("key") apiKey: String
+    ): Call<Volume>
 }

@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.NewReading"></activity>
+        <activity android:name=".view.NewReadingActivity" />
         <activity
             android:name=".view.MeuPerfilActivity"
             android:label="@string/meu_perfil_titulo_tela" />
@@ -23,7 +23,7 @@
             android:name=".view.RecuperarSenhaActivity"
             android:label="@string/recuperarSenha" />
         <activity android:name=".view.GroupDetailsActivity" />
-        <activity android:name=".view.BookDetails" />
+        <activity android:name=".view.BookDetailsActivity" />
         <activity android:name=".view.HistoricActivity" />
         <activity android:name=".view.AddGrupoActivity" />
         <activity
@@ -34,7 +34,7 @@
             android:name=".view.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.ResultsBooks" />
+        <activity android:name=".view.ResultsBooksActivity" />
         <activity
             android:name=".view.SplashActivity"
             android:noHistory="true">
