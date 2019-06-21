@@ -22,4 +22,4 @@ data class VolumeInfo(var title: String,
                       var previewLink: String,
                       var infoLink: String,
                       var canonicalVolumeLink: String,
-                      var seriesInfo: SeriesInfo)
+                      var seriesInfo: SeriesInfo?)

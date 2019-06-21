@@ -9,8 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class GoogleBookService {
     companion object {
-        private val APP_KEY = "AIzaSyAUmtFwNet9BRJzlBUe22u4dFGyj_sHL94"
-        private val DEFAULT_LANGUAGE = "pt"
+        private const val BASE_URL = "https://www.googleapis.com/books/v1/"
+        private const val APP_KEY = "AIzaSyAUmtFwNet9BRJzlBUe22u4dFGyj_sHL94"
+        private const val DEFAULT_LANGUAGE = "pt"
 
         private var retrofit: Retrofit? = null
         private var googleBooksAPI: GoogleBooksAPI? = null
@@ -18,7 +19,6 @@ class GoogleBookService {
 
     init {
         if (retrofit == null) {
-            val BASE_URL = "https://www.googleapis.com/books/v1/"
 
             retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
@@ -35,7 +35,7 @@ class GoogleBookService {
         return googleBooksAPI!!.searchVolumes(APP_KEY, DEFAULT_LANGUAGE, maxResults, term)
     }
 
-    fun getBookbyID(id: String): Call<Volume> {
-        return googleBooksAPI!!.getById(id)
+    fun getBookByID(id: String): Call<Volume> {
+        return googleBooksAPI!!.getById(id, APP_KEY)
     }
 }
