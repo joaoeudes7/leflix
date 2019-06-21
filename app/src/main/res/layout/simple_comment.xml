@@ -15,11 +15,11 @@
         android:text="João Eudes"
         android:textColor="@android:color/primary_text_light"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/avatar_user"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <ImageView
+        android:id="@+id/avatar_user"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
@@ -29,7 +29,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -40,17 +40,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/created" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_created" />
 
     <TextView
-        android:id="@+id/created"
+        android:id="@+id/txt_created"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="2dp"
         android:text="22 horas atrás"
         android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/avatar_user"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <RatingBar
