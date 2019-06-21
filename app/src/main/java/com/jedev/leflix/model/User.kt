@@ -3,10 +3,10 @@ package com.jedev.leflix.model
 import com.google.firebase.Timestamp
 
 class User : IEntity {
-    override lateinit var id: String
+    override var id: String? = null
     lateinit var name: String
     lateinit var email: String
-    var photo_url: String = ""
+    var photoUrl: String? = null
     val createdOn: Timestamp = Timestamp.now()
     var ofenciveDays: Int = 0
     var lastDateOfensive: Timestamp? = null

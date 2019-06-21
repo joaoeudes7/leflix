@@ -3,7 +3,7 @@ package com.jedev.leflix.model
 import com.jedev.leflix.utils.PRIVACY
 
 class Group : IEntity {
-    override lateinit var id: String
+    override var id: String? = null
     lateinit var name: String
     lateinit var photo: String
     lateinit var description: String

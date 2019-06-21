@@ -65,7 +65,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 return true
             }
             override fun onQueryTextSubmit(query: String): Boolean {
-                val intent = Intent(this@HomeActivity, ResultsBooks::class.java)
+                val intent = Intent(this@HomeActivity, ResultsBooksActivity::class.java)
 
                 intent.putExtra("query", query)
                 startActivity(intent)
