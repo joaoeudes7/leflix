@@ -46,8 +46,8 @@ class GroupAdapter(private var reports: List<Group>) : androidx.recyclerview.wid
     class CustomViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         val card: CardView = itemView.cardview
-        private val thumbnail: ImageView = itemView.imageView!!
-        private val title: TextView = itemView.title!!
-        private val descriptionView: TextView = itemView.subtitle!!
+        private val thumbnail: ImageView = itemView.cover_book!!
+        private val title: TextView = itemView.txt_title!!
+        private val descriptionView: TextView = itemView.txt_subtitle!!
     }
 }
